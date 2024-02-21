@@ -6,7 +6,7 @@ const getConfig = require('../config');
 
 const config = getConfig(args);
 const hostname = config.hostname;
-const port = config.port;
+const port =    config.port;
 
 const server = http.createServer((req, res) => {
     if(req.url && req.url.endsWith('/home')) {
@@ -15,9 +15,12 @@ const server = http.createServer((req, res) => {
         res.end('Welcome to home!');
     }
     else {
-        res.statusCode = 404;
-        res.setHeader('Content-Type', 'text/plain');
-        res.end('Invalid request due to bad URL');
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify({
+            "hostname":hostname,
+            "port":port
+        }));
     }
     
 })
