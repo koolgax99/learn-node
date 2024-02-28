@@ -1,1 +1,4 @@
 - In eventloop/timer.js, what will be the order of execution? Briefly explain the order of execution w.r.t the event loop phases.
+- Main Thread 
+- Timeout 
+- pending callbacks

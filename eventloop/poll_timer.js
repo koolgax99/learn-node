@@ -10,7 +10,7 @@ setTimeout(() => {
   const delay = Date.now() - timeoutScheduled;
 
   console.log(`${delay}ms have passed since I was scheduled`);
-}, 100);
+},100);
 
 // do someAsyncOperation which takes 95 ms to complete
 someAsyncOperation(() => {
@@ -20,4 +20,10 @@ someAsyncOperation(() => {
   while (Date.now() - startCallback < 10) {
     // do nothing
   }
+
+  setTimeout(() => {
+    const delay = Date.now() - timeoutScheduled;
+
+    console.log(`${delay}ms have passed since I was scheduled ---2`);
+  }, 89);
 });
